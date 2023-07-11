@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useRef } from "react"
 import { createPost } from "./api/posts"
-import Post from "./Post"
+import Post from "./old-Post"
 
 export function CreatePost({ setCurrentPage }) {
   const titleRef = useRef()

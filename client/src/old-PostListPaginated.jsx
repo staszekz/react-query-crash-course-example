@@ -5,15 +5,16 @@ import { getPostsPaginated } from "./api/posts"
 export function PostListPaginated() {
   const [page, setPage] = useState(1)
 
-  const { status, error, data, isPreviousData } = useQuery({
+  const pages = useQuery({
     queryKey: ["posts", { page }],
     keepPreviousData: true,
     queryFn: () => getPostsPaginated(page),
   })
+  console.log(pages)
+const { status, error, data, isPreviousData } = pages
 
   if (status === "loading") return <h1>Loading...</h1>
   if (status === "error") return <h1>{JSON.stringify(error)}</h1>
-
   return (
     <>
       <h1>

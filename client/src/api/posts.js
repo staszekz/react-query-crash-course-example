@@ -9,7 +9,7 @@ export function getPosts() {
 export function getPostsPaginated(page) {
   return axios
     .get("http://localhost:3000/posts", {
-      params: { _page: page, _sort: "title", _limit: 2 },
+      params: { _page: page, _sort: "title", _limit: 2},
     })
     .then(res => {
       const hasNext = page * 2 <= parseInt(res.headers["x-total-count"])
